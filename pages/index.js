@@ -27,6 +27,8 @@ export default function Home() {
             <div className=" text-2xl">{item.title}</div>
             </Link>
             <div>{item.comments_count}</div>
+            <div>
+              </div>
           </div>
           
 
