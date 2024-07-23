@@ -20,12 +20,13 @@ export default function Home() {
   return(
     <div>
       {articles.map((item)=>(
-        <div key={item.id} className="grid grid-cols-3">
+        <div key={item.id} className="grid grid-cols-3 grid-row-4">
           <div className="w-[360px] border-[#E8E8EA] border-2">
             <Link href={item.url} target="blank">
-            {/* <Image src={item.cover_image} width={360} height={240}></Image> */}
-            {item.title}
+            <Image src={item.social_image} width={360} height={240}></Image>
+            <div className=" text-2xl">{item.title}</div>
             </Link>
+            <div>{item.comments_count}</div>
           </div>
           
 
