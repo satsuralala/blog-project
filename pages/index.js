@@ -6,27 +6,6 @@ import Link from "next/link";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  // const[articles, setArticles]=usesState([]);
-
-  // useEffect(()=>{
-  //   fetch("")
-  //   .then((response)=>{
-  //     setArticles(data);
-  //   });
-
-  // },[]);
-  // return (
-  //   <div>
-  //     {articles.map((item)=>(
-  //       <div key={item.id}>
-  //         <Link href={item.url} target="_blank">
-  //           {item.title}
-  //         </Link>
-  //       </div>
-  //     ))}
-  //   </div>
-   
-  // );
   const[articles , setArticles]=useState([]);
   useEffect(()=>{
     fetch("https://dev.to/api/articles?username=ben")
@@ -41,10 +20,14 @@ export default function Home() {
   return(
     <div>
       {articles.map((item)=>(
-        <div key={item.id}>
-          <Link href={item.url} target="blank">
-          {item.title}
-          </Link>
+        <div key={item.id} className="grid grid-cols-3">
+          <div className="w-[360px] border-[#E8E8EA] border-2">
+            <Link href={item.url} target="blank">
+            {/* <Image src={item.cover_image} width={360} height={240}></Image> */}
+            {item.title}
+            </Link>
+          </div>
+          
 
         </div>
       ))}
