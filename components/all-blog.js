@@ -1,4 +1,4 @@
 
-function All(){
+// function All(){
     
-}
+// }
