@@ -1,5 +1,5 @@
 import Image from "next/image";
-// import { IoMdSearch } from "react-icons/io";
+import { IoMdSearch } from "react-icons/io";
 export function Nav(){
     return(
         <div className="py-8 mx-4 flex justify-center items-center ">
@@ -11,9 +11,9 @@ export function Nav(){
                 <a className="text-[#3B3C4A] text-base font-normal" >Blog</a>
                 <a className="text-[#3B3C4A] text-base font-normal">Contact</a>
             </div>
-            <div className="form-control pl-16 ">
-                <input type="text" placeholder="Search" className="bg-[#F4F4F5] rounded-md py-2 px-4"/>
-                {/* <IoMdSearch /> */}
+            <div className="form-control pl-16 relative">
+                <input type="text" placeholder="Search" className="bg-[#F4F4F5] rounded-md py-2 px-4 relative "/>
+                <IoMdSearch className="absolute right-5 top-3" color="black" />
             </div>
                 
 

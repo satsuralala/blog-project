@@ -31,19 +31,17 @@ export default function All() {
   }
   return (
     <div className=" bg-white ">
-      <div >
+      <div className="px-20">
         <Nav></Nav>
         <h1 className="text-[#181A2A] text-2xl font-bold py-12 pl-4">All Blog Post</h1>
         <div className="grid md:grid-cols-3 grid-cols-1  gap-5 bg-white mx-4 ">
           {articles.map((item) => (
-            <div key={item.id}>
-              <Link href={item.url} target="blank">
-                <div className="md:px-4 md:py-4 justify-center  border-[#E8E8EA] border-[1px] rounded-xl">
+              <Link  key={item.id}  href={item.url} target="blank" className="md:px-4 md:py-4 justify-center  border-[#E8E8EA] border-[1px] rounded-xl">   
                   <Image
                     src={item.social_image}
                     width={360}
                     height={240}
-                    className="w-[360px] h-[240px] rounded-md"
+                    className=" aspect-video object-contain rounded-md"
                   ></Image>
                   <div className="pt-6 px-4">
                     <div className=" badge badge-secondary badge-outline ">
@@ -67,21 +65,22 @@ export default function All() {
                       </div>
                     </div>
                   </div>
-                </div>
-              </Link>
-            </div>
+               
+              </Link>    
           ))}
         </div>
         {!ended&&(<div className="text-center" onClick={loadMore}>
           <button className="btn btn-outline text-[#696A75] my-8 ">Load more</button>
         </div>)}
-
-        <Footer />
-
-
+       
       </div>
+      {/* <div className="px-20 bg-[#F6F6F7]">
+        <Footer />
+      </div> */}
+      <Filter></Filter>
      
       
     </div>
+    
   );
 }
