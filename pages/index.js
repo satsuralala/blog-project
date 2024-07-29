@@ -4,6 +4,11 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/Footer";
+import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime'
+
+
+dayjs.extend(relativeTime);
 
 const inter = Inter({ subsets: ["latin"] });
 const pageSize=6;
@@ -12,11 +17,13 @@ export default function All() {
   const [articles, setArticles] = useState([]);
   const [page, setPage]=useState(1);
   const [ended, setEnded]=useState(false);
+  const [loading, setLoading]=useState(false);
   useEffect(() => {
     loadMore();
   }, []);
 
   function loadMore(){
+    setLoading(true);
       fetch(`https://dev.to/api/articles?username=paul_freeman&page=${page}&per_page=${pageSize}`)
         .then((response) => {
           return response.json();
@@ -25,9 +32,12 @@ export default function All() {
           const updatedArticles=articles.concat(newArticles)
           setArticles(updatedArticles);
           setPage(page+1);
-          if(newArticles.length<pageSize)
+          if(newArticles.length<pageSize){
             setEnded(true);
+          }
+          setLoading(false);
         });
+
   }
   return (
     <div className=" bg-white ">
@@ -36,14 +46,14 @@ export default function All() {
         <h1 className="text-[#181A2A] text-2xl font-bold py-12 pl-4">All Blog Post</h1>
         <div className="grid md:grid-cols-3 grid-cols-1  gap-5 bg-white mx-4 ">
           {articles.map((item) => (
-              <Link  key={item.id}  href={item.url} target="blank" className="md:px-4 md:py-4 justify-center  border-[#E8E8EA] border-[1px] rounded-xl">   
+              <Link  key={item.id}  href={item.path}  className="md:px-4 md:py-4 justify-center  border-[#E8E8EA] border-[1px] rounded-xl">   
                   <Image
                     src={item.social_image}
                     width={360}
                     height={240}
-                    className=" aspect-video object-contain rounded-md"
+                    className=" aspect-video object-cover bg-gray-300 rounded-md"
                   ></Image>
-                  <div className="pt-6 px-4">
+                  <div className="pt-6 px-4 ">
                     <div className=" badge badge-secondary badge-outline ">
                       {item.tag_list[0]}
                     </div>
@@ -61,7 +71,7 @@ export default function All() {
                         {item.user.name}
                       </div>
                       <div className="text-[#97989F] text-base font-medium">
-                        {item.readable_publish_date}
+                       {dayjs(item.published_at).fromNow()}
                       </div>
                     </div>
                   </div>
@@ -70,15 +80,19 @@ export default function All() {
           ))}
         </div>
         {!ended&&(<div className="text-center" onClick={loadMore}>
-          <button className="btn btn-outline text-[#696A75] my-8 ">Load more</button>
+         
+          <button disabled={loading}  className="btn bg-black my-8 text-black">
+            {loading && <span className="loading loading-spinner "></span>}
+            loading
+          </button>
         </div>)}
        
       </div>
-      {/* <div className="px-20 bg-[#F6F6F7]">
+      <div className="px-20 bg-[#F6F6F7]">
         <Footer />
-      </div> */}
-      <Filter></Filter>
-     
+      </div>
+      {/* <filter></Filter>
+      */}
       
     </div>
     
