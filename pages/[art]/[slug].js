@@ -6,6 +6,7 @@ export default function Page() {
     const [article, setArticle] = useState();
     const [loading, setLoading]=useState(false);
     const router = useRouter()
+    const {art, slug}=router.query;
    
     useEffect(() => {
         if(router.isReady){
@@ -16,7 +17,7 @@ export default function Page() {
   
     function getArticle(){
       setLoading(true);
-        fetch(`https://dev.to/api/articles/${article}/${slug}`)
+        fetch(`https://dev.to/api/articles/${art}/${slug}`)
           .then((response) => {
             return response.json();
           })
@@ -24,12 +25,16 @@ export default function Page() {
            setArticle(detail);
            setLoading(false);
           });
+      
   
     }
+    if(!article){
+      return(<div>loadng</div>)
+    }
     return(
-        <div>
+        <div className="flex flex-col items-center">
             <div>{article.title}</div>
-            <div className="prose">{parse(article.body_html)}</div>
+            <div className="prose flex flex-col justify-center">{parse(article.body_html)}</div>
         </div>
     )
 }

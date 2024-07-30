@@ -44,16 +44,31 @@ export default function All() {
       <div className="px-20">
         <Nav></Nav>
         <h1 className="text-[#181A2A] text-2xl font-bold py-12 pl-4">All Blog Post</h1>
+
+        <div>
+          {articles.map((item,index) => ( index < 5 &&
+              <Link  key={item.id}  href={item.path}>   
+                    <div className="hidden md:flex text-black ">
+                      {item.tag_list[0]}
+                    </div>
+             
+               
+              </Link>    
+          ))}
+        </div>
+
+
+
         <div className="grid md:grid-cols-3 grid-cols-1  gap-5 bg-white mx-4 ">
           {articles.map((item) => (
-              <Link  key={item.id}  href={item.path}  className="md:px-4 md:py-4 justify-center  border-[#E8E8EA] border-[1px] rounded-xl">   
+              <Link  key={item.id}  href={item.path}  className=" md:py-4 md:px-4 md:flex md:flex-col md:items-center md:mx-auto border-[#E8E8EA] border-[1px] rounded-xl">   
                   <Image
                     src={item.social_image}
                     width={360}
                     height={240}
                     className=" aspect-video object-cover bg-gray-300 rounded-md"
                   ></Image>
-                  <div className="pt-6 px-4 ">
+                  <div className="pt-6 px-4 md:flex-1">
                     <div className=" badge badge-secondary badge-outline ">
                       {item.tag_list[0]}
                     </div>
@@ -81,7 +96,7 @@ export default function All() {
         </div>
         {!ended&&(<div className="text-center" onClick={loadMore}>
          
-          <button disabled={loading}  className="btn bg-black my-8 text-black">
+          <button disabled={loading}  className="btn  my-8 ">
             {loading && <span className="loading loading-spinner "></span>}
             loading
           </button>
