@@ -43,6 +43,50 @@ return (
   <div className=" bg-white ">
     <div className="px-20">
       <Nav></Nav>
+
+          <div className="md:carousel w-full aspect-[5/3] rounded-xl hidden">
+             
+              {articles.map((item,index) => (
+                
+                <div id={`slide${index}`} className="carousel-item relative w-full duration-75 ">
+                      <Link
+                        key={item.id}
+                        href={item.path}
+                         className="w-full"
+                      >
+                        <Image
+                          src={item.social_image}
+                          width={1200}
+                          height={600}
+                          className=" aspect-video object-cover bg-gray-300 rounded-md  w-full"
+                        />
+                        <div className="bg-[#FFFFFF] w-[598px] h-[252px] absolute left-3 bottom-3">
+                          <div className="py-10 px-10 ">
+                            <div className=" badge badge-secondary badge-outline ">
+                              {item.tag_list[0]}
+                            </div>
+                            <div className=" text-2xl  font-semibold text-[#181A2A] pt-4">
+                              {item.title}
+                            </div>
+                            <div className="text-[#97989F] text-base font-medium pt-6">
+                              {dayjs(item.published_at).fromNow()}
+                            </div>
+                          </div>
+
+                        </div>
+                        </Link>
+                        <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+                          <a href={`#slide${index - 1}`} className="btn btn-circle">❮</a>
+                          <a href={`#slide${index+ 1}`} className="btn btn-circle">❯</a>
+                        </div>
+                        
+                    
+                </div>
+              ))}
+              
+          </div>
+  
+
       <h1 className="text-[#181A2A] text-2xl font-bold py-12 pl-4">
         All Blog Post
       </h1>
