@@ -48,7 +48,7 @@ return (
              
               {articles.map((item,index) => (
                 
-                <div id={`slide${index}`} className="carousel-item relative w-full duration-75 ">
+                <div id={`slide${index}`} className="carousel-item relative w-full  ease-out transition duration-300">
                       <Link
                         key={item.id}
                         href={item.path}
@@ -58,9 +58,9 @@ return (
                           src={item.social_image}
                           width={1200}
                           height={600}
-                          className=" aspect-video object-cover bg-gray-300 rounded-md  w-full"
+                          className=" aspect-video object-cover bg-gray-300 rounded-md  w-full transition duration-150 ease-out "
                         />
-                        <div className="bg-[#FFFFFF] w-[598px] h-[252px] absolute left-3 bottom-3">
+                        <div className="bg-[#FFFFFF] opacity-85  absolute left-3 bottom-[10%] rounded-md drop-shadow-lg">
                           <div className="py-10 px-10 ">
                             <div className=" badge badge-secondary badge-outline ">
                               {item.tag_list[0]}
@@ -76,8 +76,8 @@ return (
                         </div>
                         </Link>
                         <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                          <a href={`#slide${index - 1}`} className="btn btn-circle">❮</a>
-                          <a href={`#slide${index+ 1}`} className="btn btn-circle">❯</a>
+                          <a href={`#slide${index - 1}`} className="btn btn-circle animate-pulse">❮</a>
+                          <a href={`#slide${index+ 1}`} className="btn btn-circle animate-pulse">❯</a>
                         </div>
                         
                     
