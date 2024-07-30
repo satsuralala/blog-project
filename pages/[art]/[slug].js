@@ -14,20 +14,16 @@ export default function Page() {
         }
      
     }, [router.isReady]);
-  
-    function getArticle(){
+
+    async function getArticle(){
       setLoading(true);
-        fetch(`https://dev.to/api/articles/${art}/${slug}`)
-          .then((response) => {
-            return response.json();
-          })
-          .then((detail) => {
-           setArticle(detail);
-           setLoading(false);
-          });
-      
-  
-    }
+      const response= await  fetch(`https://dev.to/api/articles/${art}/${slug}`);
+      const detail=await response.json();
+
+      setArticle(detail);
+      setLoading(false);
+
+    };
     if(!article){
       return(<div>loadng</div>)
     }
