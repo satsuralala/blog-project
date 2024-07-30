@@ -60,7 +60,7 @@ return (
                           height={600}
                           className=" aspect-video object-cover bg-gray-300 rounded-md  w-full transition duration-150 ease-out "
                         />
-                        <div className="bg-[#FFFFFF] opacity-85  absolute left-3 bottom-[10%] rounded-md drop-shadow-lg">
+                        <div className="bg-[#FFFFFF] bg-opacity-85  absolute left-3 bottom-[10%] rounded-md drop-shadow-lg">
                           <div className="py-10 px-10 ">
                             <div className=" badge badge-secondary badge-outline ">
                               {item.tag_list[0]}
