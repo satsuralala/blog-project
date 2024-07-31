@@ -36,7 +36,7 @@ export function Footer(){
                         <div className="border-r-2 border-[#E8E8EA] text-[#3B3C4A] pr-4 h-6 pl-14" >Terms of Use</div>
                         <div className="border-r-2 border-[#E8E8EA] text-[#3B3C4A] px-4 h-6" >Privacy Policy</div>
                         <div className=" text-[#3B3C4A] px-4 h-6" >Cookie Policy</div>
-                        <div className=" text-[#3B3C4A] px-4 h-6" >Cookie Policy</div>
+                        
                         
                     </div>
                     
