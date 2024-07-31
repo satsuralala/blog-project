@@ -38,9 +38,7 @@ export function Footer(){
                         <div className=" text-[#3B3C4A] px-4 h-6" >Cookie Policy</div>
                         
                     </div>
-                    <div>
-                        
-                    </div>
+                    
                    <div>
                   
                    </div>
