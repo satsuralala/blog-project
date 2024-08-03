@@ -31,7 +31,7 @@ export default function Page() {
         <div className="flex flex-col items-center">
             <div>{article.title}</div>
             <div className="prose flex flex-col justify-center">{parse(article.body_html)}</div>
-            
+            <Link></Link>
         </div>
     )
 }
