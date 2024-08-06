@@ -18,6 +18,7 @@ export function Nav(){
                 <IoMdSearch className="absolute right-5 top-3" color="black" />
             </div>
             <IoMdMenu className="md:hidden" color="black" size={32} />
+            <IoMdMenu className="md:hidden" color="black" size={32} />
                 
 
 </div>
