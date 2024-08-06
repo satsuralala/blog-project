@@ -17,7 +17,8 @@ export function Nav(){
                 <input type="text" placeholder="Search" className="bg-[#F4F4F5] rounded-md py-2 px-4 relative "/>
                 <IoMdSearch className="absolute right-5 top-3" color="black" />
             </div>
-            
+            <IoMdMenu className="md:hidden" color="black" size={32} />
+  
                 
 
 </div>
