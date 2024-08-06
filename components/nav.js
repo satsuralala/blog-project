@@ -13,12 +13,7 @@ export function Nav(){
                 <a className="text-[#3B3C4A] text-base font-normal" >Blog</a>
                 <a className="text-[#3B3C4A] text-base font-normal">Contact</a>
             </div>
-            <div className="form-control pl-16 relative hidden md:block">
-                <input type="text" placeholder="Search" className="bg-[#F4F4F5] rounded-md py-2 px-4 relative "/>
-                <IoMdSearch className="absolute right-5 top-3" color="black" />
-            </div>
-            <IoMdMenu className="md:hidden" color="black" size={32} />
-  
+         
                 
 
 </div>
