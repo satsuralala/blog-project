@@ -19,7 +19,9 @@ export function Nav(){
             </div>
             <IoMdMenu className="md:hidden" color="black" size={32} />
   
-                
+                <div>
+                    
+                </div>
 
 </div>
     )
