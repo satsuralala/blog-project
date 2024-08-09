@@ -19,7 +19,10 @@ export function Footer(){
                     <p className="text-[#696A75] text-base font-normal pt-2">Contact </p>
                 </div>
                 <div className="flex gap-[26px] justify-center pt-[30px]">
-                  
+                    <FaFacebook color="#6D6E76"/>
+                    <FaTwitter color="#6D6E76" />
+                    <FaInstagram color="#6D6E76"/>
+                    <FaLinkedin color="#6D6E76"/>
                     
                 </div>
               
