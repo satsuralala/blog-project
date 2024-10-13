@@ -21,7 +21,23 @@ export default function All() {
     loadMore();
   }, []);
 
- 
+  async function loadMore() {
+    setLoading(true);
+
+    const response = await fetch(
+      `https://dev.to/api/articles?username=paul_freeman&page=${page}&per_page=${pageSize}`
+    );
+    const newArticles = await response.json();
+
+    const updatedArticles = articles.concat(newArticles);
+    setArticles(updatedArticles);
+
+    setPage(page + 1);
+    if (newArticles.length < pageSize) {
+      setEnded(true);
+    }
+    setLoading(false);
+  }
 
 return (
   <div className=" bg-white ">
