@@ -91,18 +91,7 @@ return (
         All Blog Post
       </h1>
 
-      <div>
-        {articles.map(
-          (item, index) =>
-            index < 5 && (
-              <Link key={item.id} href={item.path}>
-                <div className="hidden md:flex text-black ">
-                  {item.tag_list[0]}
-                </div>
-              </Link>
-            )
-        )}
-      </div>
+     
 
       <div className="grid md:grid-cols-3 grid-cols-1  gap-5 bg-white mx-4 ">
         {articles.map((item) => (
